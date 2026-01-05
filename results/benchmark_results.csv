@@ -1,0 +1,4 @@
+Scheme,SetupTimeMs,IndexBuildTimeMs,IndexSizeKB,PeakMemoryMB,AvgQueryTimeMs,P50QueryTimeMs,P95QueryTimeMs,P99QueryTimeMs,QueriesPerSecond,TotalQueries,SuccessRate
+ZMF,107,43,541.80,16.20,4.532,0.326,26.263,62.231,220.64,350,100.00
+2Lev-RR,1,41,731.62,14.81,0.030,0.006,0.113,0.290,33852.40,350,100.00
+IEX-2Lev,0,723,4917.08,99.25,0.015,0.005,0.058,0.116,68254.06,350,100.00

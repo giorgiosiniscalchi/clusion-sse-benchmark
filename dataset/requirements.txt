@@ -1,0 +1,7 @@
+# Python dependencies for dataset generation
+# Core dependencies (optional - script works without them using fallback)
+Faker>=22.0.0
+
+# Note: The script uses mostly standard library modules.
+# Faker is optional and provides more realistic Italian names.
+# If Faker is not installed, simple name generation will be used.

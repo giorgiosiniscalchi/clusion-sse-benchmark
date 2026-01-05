@@ -1,0 +1,241 @@
+{
+  "metadata": {
+    "benchmarkLibrary": "Clusion",
+    "timestamp": "2026-01-05T17:00:57.4665025",
+    "javaVersion": "21.0.4",
+    "osName": "Windows 11",
+    "osArch": "amd64",
+    "maxMemoryMB": 4018,
+    "availableProcessors": 12
+  },
+  "schemes": [
+    {
+      "schemeName": "ZMF",
+      "timing": {
+        "setupTimeMs": 107,
+        "indexBuildTimeMs": 43
+      },
+      "indexSize": {
+        "indexSizeBytes": 554800,
+        "indexSizeKB": 541.8,
+        "indexSizeMB": 0.53
+      },
+      "memory": {
+        "peakMemoryBytes": 16985160,
+        "peakMemoryMB": 16.2,
+        "baselineMemoryBytes": 13482984,
+        "memoryUsedMB": 3.34
+      },
+      "queryPerformance": {
+        "totalQueries": 350,
+        "successfulQueries": 350,
+        "failedQueries": 0,
+        "successRate": 100.0,
+        "latency": {
+          "avgMs": 4.532,
+          "minMs": 0.037,
+          "maxMs": 66.682,
+          "stdDevMs": 11.437,
+          "p50Ms": 0.326,
+          "p95Ms": 26.263,
+          "p99Ms": 62.231
+        },
+        "queriesPerSecond": 220.64
+      }
+    },
+    {
+      "schemeName": "2Lev-RR",
+      "timing": {
+        "setupTimeMs": 1,
+        "indexBuildTimeMs": 41
+      },
+      "indexSize": {
+        "indexSizeBytes": 749176,
+        "indexSizeKB": 731.62,
+        "indexSizeMB": 0.71
+      },
+      "memory": {
+        "peakMemoryBytes": 15529520,
+        "peakMemoryMB": 14.81,
+        "baselineMemoryBytes": 13093304,
+        "memoryUsedMB": 2.32
+      },
+      "queryPerformance": {
+        "totalQueries": 350,
+        "successfulQueries": 350,
+        "failedQueries": 0,
+        "successRate": 100.0,
+        "latency": {
+          "avgMs": 0.03,
+          "minMs": 0.001,
+          "maxMs": 0.721,
+          "stdDevMs": 0.073,
+          "p50Ms": 0.006,
+          "p95Ms": 0.113,
+          "p99Ms": 0.29
+        },
+        "queriesPerSecond": 33852.4
+      }
+    },
+    {
+      "schemeName": "IEX-2Lev",
+      "timing": {
+        "setupTimeMs": 0,
+        "indexBuildTimeMs": 723
+      },
+      "indexSize": {
+        "indexSizeBytes": 5035088,
+        "indexSizeKB": 4917.08,
+        "indexSizeMB": 4.8
+      },
+      "memory": {
+        "peakMemoryBytes": 104067832,
+        "peakMemoryMB": 99.25,
+        "baselineMemoryBytes": 13162744,
+        "memoryUsedMB": 86.69
+      },
+      "queryPerformance": {
+        "totalQueries": 350,
+        "successfulQueries": 350,
+        "failedQueries": 0,
+        "successRate": 100.0,
+        "latency": {
+          "avgMs": 0.015,
+          "minMs": 0.001,
+          "maxMs": 0.64,
+          "stdDevMs": 0.039,
+          "p50Ms": 0.005,
+          "p95Ms": 0.058,
+          "p99Ms": 0.116
+        },
+        "queriesPerSecond": 68254.06
+      }
+    }
+  ],
+  "summary": {
+    "numSchemes": 3,
+    "bestPerformers": {
+      "fastestIndexBuild": {
+        "timeMs": 41,
+        "scheme": "2Lev-RR"
+      },
+      "smallestIndex": {
+        "scheme": "ZMF",
+        "sizeBytes": 554800
+      },
+      "fastestQuery": {
+        "scheme": "IEX-2Lev",
+        "avgTimeMs": 0.015
+      }
+    }
+  },
+  "securityAnalysis": [
+    {
+      "schemeName": "ZMF",
+      "securityScore": 22,
+      "securityRating": "MINIMAL",
+      "leakageProfile": [
+        {
+          "type": "SEARCH_PATTERN",
+          "description": "Revealed - repeated queries for same keyword are linkable",
+          "leaked": true
+        },
+        {
+          "type": "ACCESS_PATTERN",
+          "description": "Revealed - which documents match a query",
+          "leaked": true
+        },
+        {
+          "type": "SIZE_PATTERN",
+          "description": "Revealed - number of matching documents",
+          "leaked": true
+        },
+        {
+          "type": "FORWARD_PRIVACY",
+          "description": "No",
+          "leaked": true
+        },
+        {
+          "type": "BACKWARD_PRIVACY",
+          "description": "No",
+          "leaked": true
+        }
+      ],
+      "leakedCount": 5,
+      "protectedCount": 0
+    },
+    {
+      "schemeName": "2Lev-RR",
+      "securityScore": 22,
+      "securityRating": "MINIMAL",
+      "leakageProfile": [
+        {
+          "type": "SEARCH_PATTERN",
+          "description": "Revealed - repeated queries linkable",
+          "leaked": true
+        },
+        {
+          "type": "ACCESS_PATTERN",
+          "description": "Revealed - which documents match",
+          "leaked": true
+        },
+        {
+          "type": "SIZE_PATTERN",
+          "description": "Revealed - result count visible",
+          "leaked": true
+        },
+        {
+          "type": "FORWARD_PRIVACY",
+          "description": "No",
+          "leaked": true
+        },
+        {
+          "type": "BACKWARD_PRIVACY",
+          "description": "No",
+          "leaked": true
+        }
+      ],
+      "leakedCount": 5,
+      "protectedCount": 0
+    },
+    {
+      "schemeName": "IEX-2Lev",
+      "securityScore": 10,
+      "securityRating": "MINIMAL",
+      "leakageProfile": [
+        {
+          "type": "SEARCH_PATTERN",
+          "description": "Revealed",
+          "leaked": true
+        },
+        {
+          "type": "ACCESS_PATTERN",
+          "description": "Revealed",
+          "leaked": true
+        },
+        {
+          "type": "SIZE_PATTERN",
+          "description": "Revealed for smallest term",
+          "leaked": true
+        },
+        {
+          "type": "FORWARD_PRIVACY",
+          "description": "No",
+          "leaked": true
+        },
+        {
+          "type": "BACKWARD_PRIVACY",
+          "description": "No",
+          "leaked": true
+        },
+        {
+          "type": "INTERSECTION_PATTERN",
+          "description": "Revealed - intersection sizes visible",
+          "leaked": true
+        }
+      ],
+      "leakedCount": 6,
+      "protectedCount": 0
+    }
+  ]
+}
